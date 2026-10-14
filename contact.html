@@ -3,15 +3,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#35104F">
   <title>Contact GTTI | Golide Technical Training Institute</title>
-  <meta name="description" content="Contact GTTI for programme, admissions, fees and general enquiries.">
+  <meta name="description" content="Contact Golide Technical Training Institute for programme, admissions, fees and online learning enquiries.">
   <link rel="stylesheet" href="./gtti.css?v=2">
+  <style>
+    /* Contact-page refinements: preserves the site's plum, violet, pearl and gold palette. */
+    :root {
+      --contact-plum: #35104F;
+      --contact-violet: #8B00FF;
+      --contact-gold: #FFD700;
+      --contact-pearl: #FDFBFF;
+      --contact-lavender: #F4ECFB;
+      --contact-ink: #2B2035;
+      --contact-muted: #6D6277;
+      --contact-border: #E5D9EF;
+    }
+    .contact-details { display:grid; gap:14px; margin-top:18px; }
+    .contact-detail {
+      display:flex; align-items:flex-start; gap:13px; padding:15px;
+      border:1px solid var(--contact-border); border-radius:15px;
+      background:rgba(255,255,255,.82);
+    }
+    .contact-detail-icon {
+      display:grid; place-items:center; flex:0 0 42px; width:42px; height:42px;
+      border-radius:13px; color:var(--contact-plum); background:var(--contact-lavender);
+      font-size:1.2rem; font-weight:800;
+    }
+    .contact-detail h3 { margin:0 0 3px; color:var(--contact-plum); font-size:1rem; }
+    .contact-detail p { margin:0; color:var(--contact-muted); overflow-wrap:anywhere; }
+    .contact-detail a { color:var(--contact-violet); font-weight:750; text-decoration:none; }
+    .contact-detail a:hover { text-decoration:underline; }
+    .contact-detail .detail-actions { display:flex; flex-wrap:wrap; gap:9px; margin-top:9px; }
+    .contact-detail .detail-actions a {
+      display:inline-flex; align-items:center; justify-content:center; min-height:38px;
+      padding:7px 12px; border-radius:9px; color:var(--contact-plum);
+      background:var(--contact-gold); font-size:.84rem; font-weight:800;
+    }
+    .contact-detail .detail-actions a.secondary {
+      color:var(--contact-violet); border:1px solid var(--contact-border); background:#fff;
+    }
+    .enquiry-list { padding-left:20px; }
+    .enquiry-list li { margin:0 0 13px; color:var(--contact-muted); }
+    .enquiry-list li strong { color:var(--contact-plum); }
+    .contact-form { margin-top:24px; }
+    .contact-form label { display:block; margin-bottom:7px; font-weight:700; }
+    .contact-form input:not([type="checkbox"]), .contact-form select, .contact-form textarea {
+      width:100%; min-height:47px; padding:12px 13px; border:1px solid #D8C9E4;
+      border-radius:10px; color:var(--contact-ink); background:#fff; font:inherit;
+    }
+    .contact-form textarea { min-height:130px; resize:vertical; }
+    .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus {
+      outline:3px solid rgba(139,0,255,.16); border-color:var(--contact-violet);
+    }
+    .contact-form .form-group { margin-bottom:18px; }
+    .contact-form .form-row { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+    .contact-form .form-check { display:flex; align-items:flex-start; gap:10px; margin:0 0 22px; }
+    .contact-form .form-check input { margin-top:6px; accent-color:var(--contact-violet); }
+    .contact-form .form-check label { font-weight:500; }
+    .contact-form .btn { cursor:pointer; }
+    .contact-quick-note {
+      margin-top:15px; padding:13px 15px; border-left:4px solid var(--contact-gold);
+      border-radius:0 10px 10px 0; color:#55471A; background:#FFF9DB; font-size:.9rem;
+    }
+    .contact-hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+    .contact-hero-actions a {
+      display:inline-flex; align-items:center; justify-content:center; min-height:46px;
+      padding:11px 17px; border-radius:10px; font-weight:800; text-decoration:none;
+    }
+    .contact-hero-actions .gold { color:var(--contact-plum); background:var(--contact-gold); }
+    .contact-hero-actions .light { color:#fff; border:1px solid rgba(255,255,255,.65); background:transparent; }
+    .contact-final-links { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+    .contact-final-links a { display:inline-flex; align-items:center; justify-content:center; min-height:46px; padding:11px 17px; border-radius:10px; font-weight:800; text-decoration:none; }
+    .contact-final-links .gold { color:var(--contact-plum); background:var(--contact-gold); }
+    .contact-final-links .outline { color:#fff; border:1px solid rgba(255,255,255,.7); }
+    .contact-final-links .whatsapp { color:#fff; background:#167A50; }
+    a:focus-visible, button:focus-visible { outline:3px solid var(--contact-gold); outline-offset:3px; }
+    @media(max-width:700px) {
+      .contact-form .form-row { grid-template-columns:1fr; gap:0; }
+      .contact-detail { padding:13px; }
+      .contact-hero-actions a, .contact-final-links a { width:100%; }
+    }
+  </style>
 </head>
 <body>
 
   <header class="site-header">
     <a href="index.html" class="logo">GTTI</a>
-    <nav class="nav">
+    <nav class="nav" aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="schools.html">Schools</a>
@@ -19,165 +98,202 @@
       <a href="fees.html">Fees</a>
       <a href="odel.html">ODeL</a>
       <a href="faq.html">FAQ</a>
-      <a href="contact.html" class="active">Contact</a>
+      <a href="contact.html" class="active" aria-current="page">Contact</a>
       <a href="admissions.html" class="btn-apply">APPLY NOW</a>
     </nav>
   </header>
 
-  <section class="hero hero-inner">
-    <div class="hero-content">
-      <p class="eyebrow">CONTACT</p>
-      <h1>LET'S CONNECT.</h1>
-      <p class="hero-sub">
-        Have a question about a programme, entry requirements, ODeL or the application process? Send an enquiry and the GTTI team can guide you to the next step.
-      </p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="two-col">
-        <div>
-          <h2>Get in Touch</h2>
-          <div class="contact-block">
-            <h3>Golide Technical Training Institute</h3>
-            <p><strong>Location:</strong> Nairobi, Kenya</p>
-            <p><strong>Email:</strong> <a href="mailto:golidetti@gmail.com">golidetti@gmail.com</a></p>
-            <p><strong>Admissions:</strong> For programme, entry requirement or fee enquiries.</p>
-            <p style="margin-top:16px;font-size:0.9rem;color:var(--violet);">
-              <em>Official phone numbers and physical address will be published once confirmed by the Institute.</em>
-            </p>
-          </div>
-        </div>
-
-        <div>
-          <h2>Enquiry Routes</h2>
-          <ul class="enquiry-list">
-            <li><strong>Admissions</strong> — Application, entry requirements, intake dates</li>
-            <li><strong>Programmes</strong> — Specific school or course details</li>
-            <li><strong>Fees</strong> — Current approved fee structure</li>
-            <li><strong>ODeL</strong> — Online and flexible learning</li>
-            <li><strong>General</strong> — Any other question</li>
-          </ul>
+  <main>
+    <section class="hero hero-inner">
+      <div class="hero-content">
+        <p class="eyebrow">CONTACT GTTI</p>
+        <h1>LET'S CONNECT.</h1>
+        <p class="hero-sub">
+          Have a question about a programme, entry requirements, fees or online learning? Contact GTTI and let us help you find the right next step.
+        </p>
+        <div class="contact-hero-actions">
+          <a class="gold" href="https://wa.me/254722124390" target="_blank" rel="noopener noreferrer">WhatsApp GTTI ↗</a>
+          <a class="light" href="tel:+254722124390">Call +254 722 124 390</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section section-lavender">
-    <div class="container">
-      <h2>Send an Enquiry</h2>
-      <p class="section-intro">Fill the form below and the GTTI team will respond.</p>
-
-      <form action="https://formspree.io/f/mwlpdezd" method="POST" class="contact-form">
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Full Name *</label>
-            <input type="text" name="fullName" required>
+    <section class="section">
+      <div class="container">
+        <div class="two-col">
+          <div>
+            <h2>Get in Touch</h2>
+            <div class="contact-block">
+              <h3>Golide Technical Training Institute</h3>
+              <div class="contact-details">
+                <div class="contact-detail">
+                  <span class="contact-detail-icon" aria-hidden="true">☎</span>
+                  <div>
+                    <h3>Phone / WhatsApp</h3>
+                    <p><a href="tel:+254722124390">+254 722 124 390</a></p>
+                    <div class="detail-actions">
+                      <a href="tel:+254722124390">Call GTTI</a>
+                      <a class="secondary" href="https://wa.me/254722124390" target="_blank" rel="noopener noreferrer">Message on WhatsApp ↗</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="contact-detail">
+                  <span class="contact-detail-icon" aria-hidden="true">✉</span>
+                  <div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:golidetti@gmail.com">golidetti@gmail.com</a></p>
+                  </div>
+                </div>
+                <div class="contact-detail">
+                  <span class="contact-detail-icon" aria-hidden="true">⌖</span>
+                  <div>
+                    <h3>Location</h3>
+                    <p>Nairobi, Kenya</p>
+                  </div>
+                </div>
+              </div>
+              <div class="contact-quick-note"><strong>Need guidance?</strong> Contact us about programmes, entry requirements, fees, admissions or online learning.</div>
+            </div>
           </div>
-          <div class="form-group">
-            <label>Phone / WhatsApp *</label>
-            <input type="tel" name="phone" required>
-          </div>
-        </div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label>Email *</label>
-            <input type="email" name="email" required>
-          </div>
-          <div class="form-group">
-            <label>County / Location</label>
-            <input type="text" name="county">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>Programme / School of Interest *</label>
-          <select name="interest" required>
-            <option value="">Select...</option>
-            <option>Social Work & Community Development</option>
-            <option>ICT & Digital Technology</option>
-            <option>Business & Management</option>
-            <option>Accounting, Finance & CPA</option>
-            <option>Criminology, Security & Justice</option>
-            <option>Beauty & Cosmetology</option>
-            <option>Counselling & Psychosocial Support</option>
-            <option>Short Courses</option>
-            <option>General Enquiry</option>
-          </select>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Highest Qualification</label>
-            <select name="qualification">
-              <option value="">Select...</option>
-              <option>KCPE</option>
-              <option>KCSE D</option>
-              <option>KCSE C-</option>
-              <option>KCSE C+</option>
-              <option>Certificate</option>
-              <option>Diploma</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Preferred Study Mode</label>
-            <select name="studyMode">
-              <option value="">Select...</option>
-              <option>ODeL (Online)</option>
-              <option>Physical</option>
-              <option>Blended</option>
-              <option>Not sure</option>
-            </select>
+          <div>
+            <h2>Enquiry Routes</h2>
+            <ul class="enquiry-list">
+              <li><strong>Admissions</strong> — Applications, entry requirements and intake dates</li>
+              <li><strong>Programmes</strong> — Course details and school information</li>
+              <li><strong>Fees</strong> — Current approved fee structure</li>
+              <li><strong>ODeL</strong> — Online and flexible learning</li>
+              <li><strong>General enquiries</strong> — Any other question about GTTI</li>
+            </ul>
           </div>
         </div>
-
-        <div class="form-group">
-          <label>Your Question / Enquiry</label>
-          <textarea name="message" rows="5"></textarea>
-        </div>
-
-        <div class="form-check">
-          <input type="checkbox" name="consent" id="consent" required>
-          <label for="consent">I consent to GTTI contacting me about this enquiry.</label>
-        </div>
-
-        <button type="submit" class="btn btn-primary">SEND ENQUIRY</button>
-
-      </form>
-
-    </div>
-  </section>
-
-  <section class="section section-plum final-cta">
-    <div class="container">
-      <h2>LET'S CONNECT.</h2>
-      <p class="section-intro-light">Email us directly at golidetti@gmail.com or use the form above.</p>
-      <div class="hero-buttons">
-        <a href="mailto:golidetti@gmail.com" class="btn btn-gold">EMAIL GTTI</a>
-        <a href="admissions.html" class="btn btn-outline-light">START APPLICATION</a>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="section section-lavender">
+      <div class="container">
+        <h2>Send an Enquiry</h2>
+        <p class="section-intro">Complete the form below and provide the best way to reach you.</p>
+
+        <form action="https://formspree.io/f/mwlpdezd" method="POST" class="contact-form">
+          <input type="hidden" name="_subject" value="New GTTI Website Enquiry">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName">Full Name *</label>
+              <input id="fullName" type="text" name="fullName" autocomplete="name" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone / WhatsApp *</label>
+              <input id="phone" type="tel" name="phone" autocomplete="tel" placeholder="+254..." required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input id="email" type="email" name="email" autocomplete="email" required>
+            </div>
+            <div class="form-group">
+              <label for="county">County / Location</label>
+              <input id="county" type="text" name="county" autocomplete="address-level1">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="interest">Programme / School of Interest *</label>
+            <select id="interest" name="interest" required>
+              <option value="">Select...</option>
+              <option>Social Work &amp; Community Development</option>
+              <option>ICT &amp; Digital Technology</option>
+              <option>Business &amp; Management</option>
+              <option>Accounting, Finance &amp; CPA</option>
+              <option>Criminology, Security &amp; Justice</option>
+              <option>Beauty &amp; Cosmetology</option>
+              <option>Counselling &amp; Psychosocial Support</option>
+              <option>Short Courses</option>
+              <option>General Enquiry</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="qualification">Highest Qualification</label>
+              <select id="qualification" name="qualification">
+                <option value="">Select...</option>
+                <option>KCPE</option>
+                <option>KCSE D</option>
+                <option>KCSE C-</option>
+                <option>KCSE C+</option>
+                <option>Certificate</option>
+                <option>Diploma</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="studyMode">Preferred Study Mode</label>
+              <select id="studyMode" name="studyMode">
+                <option value="">Select...</option>
+                <option>ODeL (Online)</option>
+                <option>Physical</option>
+                <option>Blended</option>
+                <option>Not sure</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Question / Enquiry</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell us what you would like to know..."></textarea>
+          </div>
+
+          <div class="form-check">
+            <input type="checkbox" name="consent" id="consent" value="Yes" required>
+            <label for="consent">I consent to GTTI contacting me about this enquiry.</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary">SEND ENQUIRY</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section section-plum final-cta">
+      <div class="container">
+        <h2>LET'S CONNECT.</h2>
+        <p class="section-intro-light">Call or WhatsApp us on +254 722 124 390, or email golidetti@gmail.com.</p>
+        <div class="contact-final-links">
+          <a href="https://wa.me/254722124390" class="whatsapp" target="_blank" rel="noopener noreferrer">WHATSAPP GTTI ↗</a>
+          <a href="tel:+254722124390" class="gold">CALL GTTI</a>
+          <a href="mailto:golidetti@gmail.com" class="outline">EMAIL GTTI</a>
+          <a href="admissions.html" class="outline">START APPLICATION</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer class="site-footer">
     <div class="footer-inner">
       <div><strong>Golide Technical Training Institute</strong><p>Where Potential Becomes Practical Skill.</p></div>
-      <div><p>Nairobi, Kenya</p><p>golidetti@gmail.com</p></div>
+      <div>
+        <p><a href="tel:+254722124390">+254 722 124 390</a></p>
+        <p><a href="mailto:golidetti@gmail.com">golidetti@gmail.com</a></p>
+        <p>Nairobi, Kenya</p>
+      </div>
       <div class="footer-links">
         <a href="schools.html">Schools</a>
         <a href="admissions.html">Admissions</a>
         <a href="fees.html">Fees</a>
         <a href="odel.html">ODeL</a>
         <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
+        <a href="contact.html" aria-current="page">Contact</a>
       </div>
     </div>
-    <p class="footer-bottom">© 2026 Golide Technical Training Institute</p>
+    <p class="footer-bottom">© <span id="currentYear">2026</span> Golide Technical Training Institute</p>
   </footer>
 
+  <script>
+    // Keeps the copyright year current without adding an external dependency.
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
