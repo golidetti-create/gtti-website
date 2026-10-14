@@ -6,8 +6,8 @@
 :root {
   --purple: #3B0A68;
   --plum: #21052F;
-  --violet: #6E24B8;
-  --gold: #D9A514;
+  --violet: #8B00FF;
+  --gold: #FFD700;
   --lavender: #F3EFF8;
   --white: #FFFFFF;
   --text: #1A0A2A;
@@ -86,7 +86,7 @@ p { margin-bottom: 14px; }
   font-weight: 700 !important;
   text-decoration: none;
 }
-.btn-apply:hover { background: #C49510; text-decoration: none; }
+.btn-apply:hover { background: #E6B800; text-decoration: none; }
 
 /* ===== HERO ===== */
 .hero {
@@ -144,7 +144,7 @@ p { margin-bottom: 14px; }
 .btn:hover { text-decoration: none; }
 
 .btn-primary { background: var(--gold); color: var(--plum); }
-.btn-primary:hover { background: #C49510; }
+.btn-primary:hover { background: #E6B800; }
 
 .btn-secondary {
   background: transparent;
@@ -154,7 +154,7 @@ p { margin-bottom: 14px; }
 .btn-secondary:hover { background: white; color: var(--purple); }
 
 .btn-gold { background: var(--gold); color: var(--plum); }
-.btn-gold:hover { background: #C49510; }
+.btn-gold:hover { background: #E6B800; }
 
 .btn-outline-light {
   background: transparent;
@@ -292,7 +292,7 @@ p { margin-bottom: 14px; }
 .card-cta {
   display: inline-block;
   margin-top: 16px;
-  color: var(--gold);
+  color: var(--purple);
   font-weight: 700;
   font-size: 0.85rem;
   letter-spacing: 1px;
@@ -504,15 +504,134 @@ p { margin-bottom: 14px; }
   margin: 0 auto;
 }
 
-/* ===== MOBILE ===== */
-@media (max-width: 768px) {
-  .site-header { padding: 12px 20px; }
-  .nav { gap: 12px; font-size: 0.85rem; }
-  .hero { padding: 60px 20px; }
-  .hero-inner { padding: 60px 20px; }
-  .section { padding: 60px 20px; }
-  .final-cta { padding: 60px 20px; }
-  .hero-buttons { flex-direction: column; }
-  .hero-buttons .btn { width: 100%; text-align: center; }
-  .form-row { grid-template-columns: 1fr; }
+/* =========================================================
+   GTTI UX ACCESSIBILITY + MOBILE NAVIGATION IMPROVEMENTS
+   ========================================================= */
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+body { min-width: 320px; }
+img, video, iframe { max-width: 100%; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.skip-link {
+  position: absolute; left: 12px; top: 8px; z-index: 1000;
+  padding: 10px 14px; border-radius: 8px; background: var(--gold);
+  color: var(--plum); font-weight: 800; transform: translateY(-160%);
+}
+.skip-link:focus { transform: translateY(0); }
+.menu-toggle {
+  display: none; align-items: center; justify-content: center; gap: 8px;
+  min-height: 44px; padding: 9px 12px; border: 1px solid rgba(255,255,255,.45);
+  border-radius: 8px; background: transparent; color: #fff; font: inherit;
+  font-weight: 700; cursor: pointer;
+}
+.menu-toggle:hover, .menu-toggle:focus-visible { background: rgba(255,255,255,.12); }
+.nav a { min-height: 36px; display: inline-flex; align-items: center; }
+.nav a:focus-visible, .footer-links a:focus-visible { border-radius: 4px; }
+.btn, .btn-apply { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+input, select, textarea, button { font: inherit; }
+@media (max-width: 760px) {
+  .site-header { position: sticky; padding: 10px 16px; gap: 10px; }
+  .logo { font-size: 1.45rem; }
+  .menu-toggle { display: inline-flex; margin-left: auto; }
+  .nav {
+    display: none; flex: 0 0 100%; width: 100%; align-items: stretch;
+    flex-direction: column; gap: 4px; padding: 10px 0 4px;
+  }
+  .nav.is-open { display: flex; }
+  .nav a { width: 100%; padding: 10px 12px; min-height: 44px; border-radius: 7px; }
+  .nav a:hover, .nav a:focus-visible { background: rgba(255,255,255,.1); }
+  .nav .btn-apply { margin-top: 4px; justify-content: center; }
+  .hero h1 { overflow-wrap: anywhere; }
+  .grid-3, .grid-4, .two-col { grid-template-columns: minmax(0, 1fr); }
+  .section, .hero, .hero-inner, .final-cta { padding-left: 18px; padding-right: 18px; }
+  .school-card, .info-card, .route-card, .value-card { padding: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+
+/* =========================================================
+   PHASE 1 — RESPONSIVE POLISH & VISUAL CONSISTENCY
+   ========================================================= */
+:root {
+  --page-gutter: clamp(16px, 4vw, 32px);
+  --content-width: 1200px;
+  --surface-border: #E8DFF3;
+  --shadow-soft: 0 8px 28px rgba(33, 5, 47, .08);
+}
+html { scroll-padding-top: 104px; }
+body { overflow-wrap: break-word; -webkit-text-size-adjust: 100%; }
+.container { width: min(100%, var(--content-width)); }
+.site-header { padding-inline: var(--page-gutter); gap: 12px 20px; }
+.nav { row-gap: 8px; column-gap: clamp(10px, 1.35vw, 20px); }
+.nav a { white-space: nowrap; }
+.hero, .hero-inner { padding-inline: var(--page-gutter); }
+.hero-content { width: min(100%, 900px); }
+.hero-sub { line-height: 1.75; }
+.section { padding-inline: var(--page-gutter); }
+.trust-strip { padding-inline: var(--page-gutter); }
+.final-cta { padding-inline: var(--page-gutter); }
+.site-footer { padding-inline: var(--page-gutter); }
+.school-card, .info-card, .route-card, .value-card, .qual-card, .step {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.school-card, .info-card, .route-card, .value-card { box-shadow: var(--shadow-soft); }
+.school-card { height: 100%; }
+.card-cta { color: var(--purple); }
+.btn, .btn-apply { line-height: 1.25; text-align: center; white-space: normal; }
+.form-group input, .form-group select, .form-group textarea { min-height: 48px; }
+.form-group textarea { min-height: 140px; resize: vertical; }
+.form-group input:focus-visible, .form-group select:focus-visible,
+.form-group textarea:focus-visible { outline: 3px solid rgba(139, 0, 255, .25); outline-offset: 1px; }
+
+/* The full desktop menu is too crowded on small laptops; collapse before it wraps. */
+@media (max-width: 1024px) {
+  .site-header { position: sticky; top: 0; }
+  .menu-toggle { display: inline-flex; margin-left: auto; flex-shrink: 0; }
+  .nav {
+    display: none; flex: 0 0 100%; width: 100%; align-items: stretch;
+    flex-direction: column; gap: 4px; padding: 10px 0 4px;
+  }
+  .nav.is-open { display: flex; }
+  .nav a { width: 100%; min-height: 44px; padding: 10px 12px; border-radius: 7px; white-space: normal; }
+  .nav a:hover, .nav a:focus-visible { background: rgba(255,255,255,.1); }
+  .nav .btn-apply { margin-top: 4px; justify-content: center; }
+}
+@media (min-width: 761px) and (max-width: 1024px) {
+  .hero { padding-block: 76px; }
+  .section { padding-block: 64px; }
+  .grid-3, .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .two-col { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+}
+@media (max-width: 760px) {
+  .site-header { padding: 10px 16px; gap: 10px; }
+  .logo { font-size: 1.4rem; letter-spacing: 1.5px; }
+  .hero, .hero-inner { padding-block: clamp(42px, 10vw, 60px); }
+  .hero h1 { font-size: clamp(1.9rem, 8vw, 2.8rem); line-height: 1.12; overflow-wrap: anywhere; }
+  .hero-sub { font-size: 1rem; }
+  .eyebrow { letter-spacing: 1.8px; font-size: .75rem; }
+  .section { padding-block: 48px; }
+  .final-cta { padding-block: 56px; }
+  .hero-buttons { flex-direction: column; align-items: stretch; gap: 12px; }
+  .hero-buttons .btn { width: 100%; }
+  .form-row { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .grid-3, .grid-4, .two-col { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .steps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .trust-strip { justify-content: flex-start; gap: 12px 18px; padding-block: 20px; }
+  .trust-item { font-size: .78rem; letter-spacing: .6px; }
+  .timeline-item { gap: 14px; }
+  .tl-num { width: 40px; height: 40px; font-size: 1rem; }
+  .footer-inner { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .site-footer { padding-top: 42px; }
+  .contact-form { width: 100%; }
+}
+@media (max-width: 380px) {
+  .steps-grid { grid-template-columns: minmax(0, 1fr); }
+  .btn { padding: 13px 16px; letter-spacing: .4px; }
+  .school-card, .info-card, .route-card, .value-card { padding: 18px; }
+}
+@media (hover: none) {
+  .school-card:hover { transform: none; }
 }

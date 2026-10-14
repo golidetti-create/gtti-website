@@ -156,9 +156,19 @@
     .access-option p,.step-card p,.requirements-copy>p{line-height:1.75}
     .hero-description{line-height:1.8}
     ::selection{color:var(--violet-deep);background:#FFE875}
-    @media(min-width:761px){.nav-links{display:flex!important}}
+    @media(min-width:901px){.nav-links{display:flex!important}}
     @media(max-width:760px){.nav-links{display:none}.nav-links.open{display:flex}.nav-links>a:not(.btn){min-height:44px;display:flex;align-items:center}.menu-toggle{min-width:46px;min-height:46px}}
     @media print{.site-header{position:static}.menu-toggle,.hero-actions,.btn,.final-cta{display:none!important}body{background:#fff;color:#111}.hero,.moodle-intro,.site-footer{background:#fff!important;color:#111!important}.hero-description,.moodle-intro p,.moodle-url,.footer-copy{color:#333!important}.section,.hero{padding:24px 0}.learning-card,.moodle-panel,.support-card,.step-card{box-shadow:none}}
+
+
+    /* Tablet-width navigation: keep the menu usable before desktop links become cramped. */
+    @media (min-width:761px) and (max-width:900px) {
+      .menu-toggle{display:grid;place-items:center;background:#4B176A;border-color:#744A8C;color:#fff}
+      .nav-links{position:absolute;top:100%;left:0;right:0;display:none;align-items:stretch;gap:0;padding:12px 4% 20px;border-bottom:1px solid var(--line);background:var(--violet-deep);box-shadow:0 15px 24px rgba(53,16,79,.08)}
+      .nav-links.open{display:flex;flex-direction:column}
+      .nav-links>a:not(.btn){padding:12px 4px;border-bottom:1px solid rgba(255,255,255,.12);min-height:44px;display:flex;align-items:center}
+      .nav-links .btn{margin-top:12px}
+    }
 
     @media(prefers-reduced-motion:reduce){
       html{scroll-behavior:auto}*,*:before,*:after{transition-duration:.01ms!important}
@@ -166,6 +176,7 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="#home" aria-label="Golide Technical Training Institute home">GTTI</a>
@@ -176,11 +187,13 @@
         <a href="#how-it-works">How It Works</a>
         <a href="#support">Student Support</a>
         <a class="btn btn-gold" href="https://gtti.moodiy.school/login/index.php" target="_blank" rel="noopener noreferrer">Log In to Moodle ↗</a>
+      
+        <a href="find-route.html">Find My Route</a>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div>
