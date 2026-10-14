@@ -1,1860 +1,352 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#40204f">
-  <meta name="description" content="Discover Open, Distance and e-Learning at Golide Technical Training Institute. Access Moodle, learning resources, assignments and digital academic support.">
-  <title>ODeL | Digital Campus — Golide Technical Training Institute</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#35104F">
+  <meta name="description" content="Access online learning, course materials, assignments and learning resources at Golide Technical Training Institute.">
+  <title>Online Learning | Golide Technical Training Institute</title>
   <style>
-    /* =========================================
-       GTTI ODeL | COMPLETE RESPONSIVE WEBSITE
-       ========================================= */
-
     :root {
-      --plum: #40204f;
-      --plum-dark: #291434;
-      --plum-light: #67457b;
-      --gold: #e9b949;
-      --gold-light: #f9edca;
-      --lavender: #f6f2fa;
-      --white: #ffffff;
-      --ink: #292332;
-      --muted: #6d6676;
-      --border: #e9e2ef;
-      --green: #34845b;
-      --shadow: 0 12px 36px rgba(44, 24, 57, .08);
-      --radius: 18px;
-      --container: 1160px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 90px;
-    }
-
-    body {
-      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
-      background: var(--white);
-      color: var(--ink);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    a:focus-visible,
-    button:focus-visible {
-      outline: 3px solid var(--gold);
-      outline-offset: 4px;
-    }
-
-    img, svg {
-      max-width: 100%;
-    }
-
-    .container {
-      width: min(var(--container), calc(100% - 40px));
-      margin-inline: auto;
-    }
-
-    .section {
-      padding: 88px 0;
-    }
-
-    .section-lavender {
-      background: var(--lavender);
-    }
-
-    .section-plum {
-      background: var(--plum);
-      color: var(--white);
-    }
-
-    .section-heading {
-      max-width: 700px;
-      margin: 0 auto 42px;
-      text-align: center;
-    }
-
-    .section-heading h2 {
-      color: var(--plum);
-      font-size: clamp(28px, 4vw, 39px);
-      line-height: 1.2;
-      letter-spacing: -.8px;
-      margin-bottom: 13px;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--plum);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 26px;
-      height: 2px;
-      background: var(--gold);
-    }
-
-    /* BUTTONS */
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 48px;
-      padding: 13px 20px;
-      border: 1px solid transparent;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 800;
-      line-height: 1.3;
-      text-align: center;
-      text-decoration: none;
-      cursor: pointer;
-      transition: transform .2s ease, background .2s ease,
-                  box-shadow .2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-gold {
-      background: var(--gold);
-      color: var(--plum-dark);
-      box-shadow: 0 6px 18px rgba(233, 185, 73, .2);
-    }
-
-    .btn-gold:hover {
-      background: #f2cc6c;
-    }
-
-    .btn-plum {
-      background: var(--plum);
-      color: var(--white);
-      box-shadow: 0 7px 20px rgba(64, 32, 79, .16);
-    }
-
-    .btn-plum:hover {
-      background: var(--plum-dark);
-      color: var(--white);
-    }
-
-    .btn-outline {
-      border-color: rgba(255, 255, 255, .6);
-      color: var(--white);
-      background: transparent;
-    }
-
-    .btn-outline:hover {
-      background: rgba(255, 255, 255, .1);
-    }
-
-    .btn-white {
-      background: var(--white);
-      border-color: var(--border);
-      color: var(--plum);
-    }
-
-    .btn-white:hover {
-      background: var(--lavender);
-    }
-
-    /* NAVIGATION */
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, .97);
-      border-bottom: 1px solid var(--border);
-      box-shadow: 0 3px 15px rgba(40, 20, 52, .035);
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 22px;
-      min-height: 78px;
-    }
-
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      flex-shrink: 0;
-      text-decoration: none;
-    }
-
-    .logo-mark {
-      display: grid;
-      place-items: center;
-      width: 47px;
-      height: 47px;
-      border-radius: 12px;
-      background: var(--plum);
-      color: var(--gold);
-      font-size: 21px;
-      font-weight: 900;
-      letter-spacing: -1px;
-    }
-
-    .logo-copy strong {
-      display: block;
-      color: var(--plum);
-      font-size: 15px;
-      line-height: 1.25;
-      letter-spacing: .2px;
-    }
-
-    .logo-copy span {
-      display: block;
-      margin-top: 4px;
-      color: var(--muted);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1.2px;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 23px;
-    }
-
-    .nav > a:not(.btn) {
-      position: relative;
-      padding: 8px 0;
-      color: #514859;
-      font-size: 12px;
-      font-weight: 700;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .nav > a:not(.btn):hover,
-    .nav > a.active {
-      color: var(--plum);
-    }
-
-    .nav > a.active::after {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      height: 2px;
-      background: var(--gold);
-      content: "";
-    }
-
-    .nav .btn {
-      min-height: 42px;
-      padding: 11px 14px;
-      font-size: 11px;
-      white-space: nowrap;
-    }
-
-    .nav-toggle {
-      display: none;
-      width: 44px;
-      height: 44px;
-      border: 1px solid var(--border);
-      border-radius: 9px;
-      background: var(--white);
-      color: var(--plum);
-      font-size: 25px;
-      cursor: pointer;
-    }
-
-    /* HERO */
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 90% 20%,
-          rgba(233, 185, 73, .17), transparent 28%),
-        radial-gradient(circle at 65% 100%,
-          rgba(143, 108, 166, .17), transparent 35%),
-        linear-gradient(135deg, #f8f5fb 0%, #fff 60%, #f9f3e6 100%);
-    }
-
-    .hero::after {
-      position: absolute;
-      top: -160px;
-      right: -130px;
-      width: 430px;
-      height: 430px;
-      border: 1px solid rgba(64, 32, 79, .1);
-      border-radius: 50%;
-      content: "";
-      pointer-events: none;
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: 1.12fr .88fr;
-      align-items: center;
-      gap: 54px;
-      min-height: 540px;
-      padding-block: 78px;
-    }
-
-    .hero-copy {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero h1 {
-      max-width: 680px;
-      margin: 20px 0;
-      color: var(--plum);
-      font-size: clamp(39px, 5.3vw, 66px);
-      font-weight: 850;
-      line-height: 1.05;
-      letter-spacing: -2px;
-    }
-
-    .hero h1 .gold-text {
-      color: #9c7120;
-    }
-
-    .hero-description {
-      max-width: 560px;
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.85;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 30px;
-    }
-
-    .hero-caption {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      margin-top: 26px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .caption-mark {
-      display: grid;
-      flex: 0 0 30px;
-      width: 30px;
-      height: 30px;
-      place-items: center;
-      border-radius: 50%;
-      background: #e9f4ec;
-      color: var(--green);
-      font-weight: 900;
-    }
-
-    /* HERO ILLUSTRATION */
-
-    .hero-art {
-      position: relative;
-      display: grid;
-      min-height: 360px;
-      place-items: center;
-    }
-
-    .art-orbit {
-      position: absolute;
-      width: min(100%, 350px);
-      aspect-ratio: 1;
-      border: 1px solid rgba(64, 32, 79, .13);
-      border-radius: 50%;
-    }
-
-    .art-orbit::after {
-      position: absolute;
-      inset: 25px;
-      border: 1px dashed rgba(64, 32, 79, .15);
-      border-radius: 50%;
-      content: "";
-    }
-
-    .art-card {
-      position: relative;
-      z-index: 2;
-      width: min(100%, 335px);
-      padding: 28px;
-      border: 1px solid rgba(255, 255, 255, .8);
-      border-radius: 20px;
-      background: rgba(255, 255, 255, .96);
-      box-shadow: 0 25px 65px rgba(52, 28, 66, .14);
-    }
-
-    .art-card-top {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-      margin-bottom: 24px;
-    }
-
-    .art-logo {
-      display: grid;
-      width: 53px;
-      height: 53px;
-      place-items: center;
-      border-radius: 13px;
-      background: var(--plum);
-      color: var(--gold);
-      font-size: 28px;
-      font-weight: 900;
-    }
-
-    .art-card-top strong {
-      display: block;
-      color: var(--plum);
-      font-size: 14px;
-    }
-
-    .art-card-top small {
-      display: block;
-      margin-top: 3px;
-      color: var(--muted);
-      font-size: 10px;
-      letter-spacing: 1px;
-    }
-
-    .art-card h3 {
-      margin-bottom: 18px;
-      color: var(--plum);
-      font-size: 21px;
-    }
-
-    .art-feature {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      margin-top: 13px;
-      color: #4b4251;
-      font-size: 13px;
-    }
-
-    .art-check {
-      display: grid;
-      width: 25px;
-      height: 25px;
-      flex-shrink: 0;
-      place-items: center;
-      border-radius: 8px;
-      background: var(--gold-light);
-      color: var(--plum);
-      font-weight: 900;
-    }
-
-    .floating-tag {
-      position: absolute;
-      z-index: 3;
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      padding: 12px 15px;
-      border: 1px solid var(--border);
-      border-radius: 11px;
-      background: var(--white);
-      box-shadow: var(--shadow);
-      color: var(--plum);
-      font-size: 11px;
-      font-weight: 800;
-    }
-
-    .floating-one {
-      top: 35px;
-      right: -5px;
-    }
-
-    .floating-two {
-      bottom: 35px;
-      left: -5px;
-    }
-
-    /* MOODLE ACCESS PANEL */
-
-    .moodle-section {
-      padding: 0 0 70px;
-      background: var(--white);
-    }
-
-    .moodle-panel {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 28px;
-      padding: 35px 40px;
-      border-radius: var(--radius);
-      background: var(--plum);
-      color: var(--white);
-      box-shadow: 0 16px 38px rgba(64, 32, 79, .18);
-    }
-
-    .moodle-kicker {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--gold);
-      font-size: 10px;
-      font-weight: 850;
-      letter-spacing: 2px;
-    }
-
-    .moodle-panel h2 {
-      margin-bottom: 9px;
-      color: var(--white);
-      font-size: clamp(23px, 3vw, 32px);
-      line-height: 1.25;
-    }
-
-    .moodle-panel p {
-      max-width: 650px;
-      color: rgba(255, 255, 255, .8);
-      font-size: 14px;
-    }
-
-    .moodle-panel .btn {
-      min-width: 190px;
-      flex-shrink: 0;
-    }
-
-    /* GENERAL CARD GRIDS */
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .info-card,
-    .value-card,
-    .route-card {
-      position: relative;
-      height: 100%;
-      padding: 27px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: var(--white);
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-
-    .info-card:hover,
-    .value-card:hover,
-    .route-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-    }
-
-    .card-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 43px;
-      height: 43px;
-      margin-bottom: 20px;
-      border-radius: 12px;
-      background: var(--lavender);
-      color: var(--plum);
-      font-size: 14px;
-      font-weight: 900;
-    }
-
-    .card-icon {
-      display: inline-grid;
-      width: 45px;
-      height: 45px;
-      margin-bottom: 20px;
-      place-items: center;
-      border-radius: 12px;
-      background: var(--gold-light);
-      color: var(--plum);
-      font-size: 21px;
-      font-weight: 800;
-    }
-
-    .info-card h3,
-    .value-card h3,
-    .route-card h3 {
-      margin-bottom: 9px;
-      color: var(--plum);
-      font-size: 17px;
-      line-height: 1.4;
-    }
-
-    .info-card p,
-    .value-card p,
-    .route-card p {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.85;
-    }
-
-    .info-card {
-      border-top: 3px solid var(--gold);
-    }
-
-    .value-card {
-      background: rgba(255, 255, 255, .8);
-    }
-
-    .value-card a {
-      display: inline-block;
-      margin-top: 15px;
-      color: var(--plum);
-      font-size: 12px;
-      font-weight: 800;
-      text-decoration: none;
-    }
-
-    .value-card a:hover {
-      text-decoration: underline;
-    }
-
-    /* DEVICE REQUIREMENTS */
-
-    .requirements-note {
-      max-width: 720px;
-      margin: 30px auto 0;
-      padding: 17px 20px;
-      border: 1px solid #e8dcb9;
-      border-radius: 10px;
-      background: #fffaf0;
-      color: #68562c;
-      font-size: 13px;
-      text-align: center;
-    }
-
-    /* PROMISE BANNER */
-
-    .promise {
-      position: relative;
-      overflow: hidden;
-      padding: 72px 0;
-      background:
-        radial-gradient(circle at 90% 20%,
-          rgba(233, 185, 73, .15), transparent 30%),
-        var(--plum);
-      text-align: center;
-    }
-
-    .promise .eyebrow {
-      color: var(--gold);
-    }
-
-    .promise h2 {
-      max-width: 850px;
-      margin: 22px auto 15px;
-      color: var(--white);
-      font-size: clamp(27px, 4.5vw, 43px);
-      line-height: 1.25;
-      letter-spacing: -.7px;
-    }
-
-    .promise p {
-      max-width: 620px;
-      margin: 0 auto;
-      color: rgba(255, 255, 255, .8);
-      font-size: 14px;
-    }
-
-    /* GETTING STARTED */
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .step {
-      padding: 25px 18px;
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      background: var(--white);
-      text-align: center;
-    }
-
-    .step-num {
-      display: grid;
-      width: 48px;
-      height: 48px;
-      margin: 0 auto 18px;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--plum);
-      color: var(--gold);
-      font-size: 14px;
-      font-weight: 900;
-    }
-
-    .step h3 {
-      margin-bottom: 8px;
-      color: var(--plum);
-      font-size: 14px;
-    }
-
-    .step p {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.8;
-    }
-
-    /* SUPPORT */
-
-    .support-box {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-      margin-top: 38px;
-      padding: 25px 28px;
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      background: var(--white);
-    }
-
-    .support-box h3 {
-      margin-bottom: 5px;
-      color: var(--plum);
-      font-size: 17px;
-    }
-
-    .support-box p {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    /* FINAL CTA */
-
-    .final-cta {
-      padding: 75px 0;
-      background: var(--plum-dark);
-      text-align: center;
-    }
-
-    .final-cta .eyebrow {
-      color: var(--gold);
-    }
-
-    .final-cta h2 {
-      max-width: 750px;
-      margin: 18px auto 14px;
-      color: var(--white);
-      font-size: clamp(30px, 4vw, 44px);
-      line-height: 1.2;
-    }
-
-    .final-cta p {
-      max-width: 620px;
-      margin: 0 auto;
-      color: rgba(255, 255, 255, .78);
-      font-size: 14px;
-    }
-
-    .final-cta .hero-actions {
-      justify-content: center;
-    }
-
-    /* FOOTER */
-
-    .site-footer {
-      padding: 55px 0 0;
-      background: #211129;
-      color: rgba(255, 255, 255, .75);
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr;
-      gap: 45px;
-      padding-bottom: 40px;
-    }
-
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 17px;
-    }
-
-    .footer-brand .logo-mark {
-      background: rgba(255, 255, 255, .1);
-    }
-
-    .footer-brand strong {
-      color: var(--white);
-      font-size: 14px;
-    }
-
-    .footer-description {
-      max-width: 330px;
-      font-size: 13px;
-      line-height: 1.9;
-    }
-
-    .footer-heading {
-      margin-bottom: 17px;
-      color: var(--gold);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .footer-links {
-      display: grid;
-      gap: 11px;
-    }
-
-    .footer-links a,
-    .footer-links span {
-      color: rgba(255, 255, 255, .75);
-      font-size: 13px;
-      text-decoration: none;
-      overflow-wrap: anywhere;
-    }
-
-    .footer-links a:hover {
-      color: var(--gold);
-    }
-
-    .footer-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-      padding: 20px 0;
-      border-top: 1px solid rgba(255, 255, 255, .12);
-      font-size: 11px;
-    }
-
-    .footer-bottom a {
-      color: var(--gold);
-      text-decoration: none;
-    }
-
-    /* RESPONSIVE TABLET */
-
-    @media (max-width: 1050px) {
-      .nav {
-        gap: 14px;
-      }
-
-      .nav > a:not(.btn) {
-        font-size: 11px;
-      }
-
-      .logo-copy strong {
-        font-size: 13px;
-      }
-
-      .logo-copy span {
-        font-size: 9px;
-      }
-
-      .hero-inner {
-        gap: 25px;
-      }
-
-      .grid-4 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .steps-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
-    /* RESPONSIVE MOBILE */
-
-    @media (max-width: 800px) {
-      .container {
-        width: min(100% - 32px, var(--container));
-      }
-
-      .section {
-        padding: 65px 0;
-      }
-
-      .header-inner {
-        min-height: 70px;
-      }
-
-      .nav-toggle {
-        display: grid;
-        place-items: center;
-        flex-shrink: 0;
-      }
-
-      .nav {
-        position: absolute;
-        top: 100%;
-        right: 0;
-        left: 0;
-        display: none;
-        align-items: stretch;
-        gap: 0;
-        padding: 12px 20px 22px;
-        border-bottom: 1px solid var(--border);
-        background: var(--white);
-        box-shadow: 0 16px 25px rgba(40, 20, 52, .08);
-      }
-
-      .nav.is-open {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .nav > a:not(.btn) {
-        padding: 13px 3px;
-        border-bottom: 1px solid #f0ebf4;
-        font-size: 14px;
-      }
-
-      .nav > a.active::after {
-        display: none;
-      }
-
-      .nav .btn {
-        width: 100%;
-        margin-top: 10px;
-        min-height: 46px;
-        font-size: 12px;
-      }
-
-      .hero-inner {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding-block: 60px 35px;
-      }
-
-      .hero h1 {
-        font-size: clamp(39px, 10vw, 58px);
-        letter-spacing: -1.5px;
-      }
-
-      .hero-description {
-        font-size: 15px;
-      }
-
-      .hero-art {
-        min-height: 340px;
-      }
-
-      .floating-one {
-        right: 0;
-      }
-
-      .floating-two {
-        left: 0;
-      }
-
-      .moodle-section {
-        padding-bottom: 40px;
-      }
-
-      .moodle-panel {
-        grid-template-columns: 1fr;
-        gap: 22px;
-        padding: 28px;
-      }
-
-      .moodle-panel .btn {
-        width: 100%;
-      }
-
-      .grid-3 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .footer-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 35px 25px;
-      }
-
-      .footer-brand-column {
-        grid-column: 1 / -1;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .container {
-        width: calc(100% - 30px);
-      }
-
-      .logo-mark {
-        width: 41px;
-        height: 41px;
-        font-size: 19px;
-      }
-
-      .logo-copy strong {
-        font-size: 12px;
-      }
-
-      .logo-copy span {
-        font-size: 8px;
-        letter-spacing: .8px;
-      }
-
-      .hero-inner {
-        padding-top: 45px;
-      }
-
-      .hero h1 {
-        font-size: 39px;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .hero-actions .btn {
-        width: 100%;
-      }
-
-      .hero-art {
-        min-height: 305px;
-      }
-
-      .art-card {
-        width: min(100%, 305px);
-        padding: 23px;
-      }
-
-      .art-orbit {
-        width: 280px;
-      }
-
-      .floating-tag {
-        padding: 10px;
-        font-size: 10px;
-      }
-
-      .floating-one {
-        top: 10px;
-      }
-
-      .floating-two {
-        bottom: 10px;
-      }
-
-      .section-heading {
-        margin-bottom: 30px;
-      }
-
-      .section-heading h2 {
-        font-size: 29px;
-      }
-
-      .grid-3,
-      .grid-4 {
-        grid-template-columns: 1fr;
-        gap: 15px;
-      }
-
-      .info-card,
-      .value-card,
-      .route-card {
-        padding: 23px;
-      }
-
-      .moodle-panel {
-        padding: 25px 21px;
-      }
-
-      .moodle-panel h2 {
-        font-size: 26px;
-      }
-
-      .steps-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-      }
-
-      .step {
-        padding: 22px 13px;
-      }
-
-      .support-box {
-        align-items: stretch;
-        flex-direction: column;
-        padding: 22px;
-      }
-
-      .support-box .btn {
-        width: 100%;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-
-      .footer-brand-column {
-        grid-column: auto;
-      }
-
-      .footer-bottom {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        transition-duration: .01ms !important;
-      }
+      --pearl:#FDFBFF; --pearl-2:#F4EFF8; --white:#FFFFFF;
+      --violet:#5B168A; --violet-deep:#35104F; --amethyst:#8B00FF;
+      --violet-soft:#EEE0FA; --gold:#FFD700; --gold-deep:#B88B00;
+      --gold-pale:#FFF8D6; --ink:#292039; --muted:#6F657A;
+      --line:#E7DDED; --green:#197348;
+      --shadow:0 16px 42px rgba(53,16,79,.10);
+      --shadow-hover:0 22px 48px rgba(53,16,79,.17);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{font-family:Inter,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--pearl);line-height:1.7;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--gold-deep);outline-offset:4px}
+    .container{width:min(1160px,92%);margin-inline:auto}
+    .section{padding:78px 0}
+    .section-heading{max-width:740px;margin:0 auto 40px;text-align:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;margin-bottom:14px;color:var(--violet);font-size:.76rem;font-weight:850;letter-spacing:.13em;text-transform:uppercase}
+    .eyebrow:before{content:"";width:24px;height:3px;border-radius:5px;background:var(--gold-deep)}
+    .section-heading h2{margin-bottom:14px;color:var(--violet-deep);font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.2;letter-spacing:-.035em}
+    .section-heading p{color:var(--muted);font-size:1.02rem}
+    .site-header{position:sticky;top:0;z-index:1000;background:rgba(253,251,255,.96);border-bottom:1px solid rgba(91,22,138,.12);backdrop-filter:blur(14px)}
+    .nav{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;min-width:0;color:var(--gold);font-size:2.35rem;font-weight:900;letter-spacing:.09em;line-height:1;text-decoration:none}
+    .site-header{background:var(--violet-deep);border-bottom:1px solid rgba(255,215,0,.18)}
+    .nav-links{display:flex;align-items:center;gap:23px}
+    .nav-links>a:not(.btn){color:#FFFFFF;font-size:.95rem;font-weight:750;transition:color .2s ease}
+    .nav-links>a:not(.btn):hover,
+    .nav-links>a:not(.btn)[aria-current="page"]{color:var(--gold)}
+    .nav-links>a:not(.btn)[aria-current="page"]{position:relative}
+    .nav-links>a:not(.btn)[aria-current="page"]:after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:2px;border-radius:2px;background:var(--gold)}
+    .menu-toggle{display:none;width:46px;height:46px;border:1px solid var(--line);border-radius:13px;background:#fff;color:var(--violet);font-size:1.45rem;cursor:pointer}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:49px;padding:12px 20px;border:2px solid transparent;border-radius:13px;font-size:.94rem;font-weight:800;line-height:1.35;text-align:center;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-gold{color:var(--violet-deep);background:linear-gradient(135deg,#FFE875,var(--gold));box-shadow:0 8px 22px rgba(214,169,0,.23)}
+    .btn-gold:hover{background:#FFE34D;box-shadow:0 12px 28px rgba(214,169,0,.3)}
+    .btn-violet{color:#fff;background:linear-gradient(135deg,var(--amethyst),var(--violet));box-shadow:0 9px 24px rgba(91,22,138,.24)}
+    .btn-violet:hover{box-shadow:0 13px 30px rgba(91,22,138,.32)}
+    .btn-outline{color:var(--violet);border-color:#CDB3E2;background:#fff}
+    .btn-outline:hover{background:var(--violet-soft);border-color:var(--amethyst)}
+    .btn-block{width:100%}
+    .hero{position:relative;overflow:hidden;padding:76px 0 82px;background:radial-gradient(ellipse at 87% 12%,rgba(139,0,255,.13),transparent 36%),radial-gradient(ellipse at 8% 90%,rgba(255,215,0,.16),transparent 32%),linear-gradient(135deg,#fff 0%,#FBF7FF 57%,#F0E4FC 100%)}
+    .hero:before{content:"";position:absolute;right:-100px;top:-140px;width:390px;height:390px;border:1px solid rgba(139,0,255,.13);border-radius:50%;pointer-events:none}
+    .hero-grid{position:relative;display:grid;grid-template-columns:1.12fr .88fr;align-items:center;gap:55px}
+    .hero-badge{display:inline-flex;align-items:center;gap:9px;margin-bottom:21px;padding:8px 13px;border:1px solid #E4D0F4;border-radius:999px;color:var(--violet);background:rgba(255,255,255,.84);font-size:.78rem;font-weight:850}
+    .status-dot{width:9px;height:9px;border-radius:50%;background:#22A06B;box-shadow:0 0 0 4px rgba(34,160,107,.12)}
+    h1{max-width:700px;margin-bottom:21px;color:var(--violet-deep);font-size:clamp(2.65rem,5.3vw,4.5rem);line-height:1.06;letter-spacing:-.055em}
+    h1 span{color:var(--amethyst)}
+    .hero-description{max-width:610px;margin-bottom:28px;color:#665B74;font-size:1.07rem}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:23px}
+    .hero-note{display:flex;gap:9px;color:var(--muted);font-size:.85rem}
+    .hero-note strong{color:var(--violet)}
+    .learning-card{position:relative;overflow:hidden;padding:29px;border:1px solid #fff;border-radius:28px;background:rgba(255,255,255,.88);box-shadow:0 25px 70px rgba(53,16,79,.15);backdrop-filter:blur(12px)}
+    .learning-card:before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--amethyst),var(--gold))}
+    .card-icon{display:grid;place-items:center;width:57px;height:57px;margin-bottom:18px;border-radius:17px;color:var(--violet);background:var(--violet-soft);font-size:1.8rem}
+    .learning-card h2{margin-bottom:8px;color:var(--violet-deep);font-size:1.55rem;line-height:1.3}
+    .learning-card>p{margin-bottom:20px;color:var(--muted);font-size:.94rem}
+    .platform-list{display:grid;gap:12px;margin-bottom:21px}
+    .platform-item{display:flex;align-items:center;gap:12px;padding:11px;border:1px solid #EFE6F5;border-radius:13px;background:#FFFDFF}
+    .platform-check{display:grid;place-items:center;flex:0 0 35px;width:35px;height:35px;border-radius:11px;color:var(--violet);background:var(--violet-soft);font-weight:900}
+    .platform-item strong{display:block;color:var(--ink);font-size:.9rem}
+    .platform-item small{display:block;margin-top:2px;color:var(--muted);font-size:.78rem}
+    .secure-note{margin-top:12px;color:var(--muted);font-size:.76rem;text-align:center}
+    .benefits-strip{padding:23px 0;border-block:1px solid #EFE5F6;background:#fff}
+    .benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .benefit{display:flex;align-items:center;justify-content:center;gap:12px}
+    .benefit-icon{display:grid;place-items:center;flex:0 0 43px;width:43px;height:43px;border-radius:13px;color:var(--violet);background:var(--violet-soft);font-size:1.25rem}
+    .benefit strong{display:block;color:var(--violet-deep);font-size:.91rem}
+    .benefit span{display:block;color:var(--muted);font-size:.8rem}
+    .moodle-section{background:radial-gradient(circle at 0 0,rgba(139,0,255,.06),transparent 32%),var(--pearl)}
+    .moodle-panel{display:grid;grid-template-columns:.95fr 1.05fr;overflow:hidden;border:1px solid #E6D9EF;border-radius:28px;background:#fff;box-shadow:var(--shadow)}
+    .moodle-intro{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:42px;color:#fff;background:linear-gradient(145deg,var(--violet),var(--violet-deep))}
+    .moodle-intro:after{content:"";position:absolute;right:-80px;bottom:-105px;width:270px;height:270px;border:1px solid rgba(255,215,0,.4);border-radius:50%;box-shadow:0 0 0 25px rgba(255,255,255,.025),0 0 0 50px rgba(255,255,255,.025);pointer-events:none}
+    .moodle-intro .eyebrow{color:#FFE56B}
+    .moodle-intro h2{position:relative;z-index:1;margin-bottom:16px;font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.17;letter-spacing:-.035em}
+    .moodle-intro p{position:relative;z-index:1;margin-bottom:24px;color:#F0E4FA}
+    .moodle-url{position:relative;z-index:1;margin-top:18px;color:#E9D8F8;font-size:.78rem;overflow-wrap:anywhere}
+    .moodle-url strong{display:block;margin-top:4px;color:var(--gold);font-size:.85rem}
+    .moodle-options{display:grid;align-content:center;gap:15px;padding:34px}
+    .access-option{display:flex;align-items:flex-start;gap:14px;padding:18px;border:1px solid var(--line);border-radius:17px;background:#FFFDFF;transition:border-color .2s,transform .2s}
+    .access-option:hover{transform:translateY(-2px);border-color:#C6A3E0}
+    .access-icon{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;border-radius:14px;color:var(--violet);background:var(--violet-soft);font-size:1.3rem}
+    .access-option h3{margin-bottom:5px;color:var(--violet-deep);font-size:1.02rem}
+    .access-option p{margin-bottom:12px;color:var(--muted);font-size:.87rem}
+    .access-option .btn{width:100%}
+    .steps-section{background:linear-gradient(180deg,#F8F2FD,#fff)}
+    .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:21px}
+    .step-card{padding:27px 24px;border:1px solid #E9DDF2;border-radius:20px;background:rgba(255,255,255,.9);box-shadow:0 8px 25px rgba(53,16,79,.045)}
+    .step-number{display:grid;place-items:center;width:47px;height:47px;margin-bottom:18px;border-radius:15px;color:var(--violet-deep);background:linear-gradient(135deg,#FFE878,var(--gold));font-weight:900}
+    .step-card h3{margin-bottom:8px;color:var(--violet-deep);font-size:1.1rem}
+    .step-card p{color:var(--muted);font-size:.92rem}
+    .requirements-grid{display:grid;grid-template-columns:1fr 1fr;gap:38px;align-items:center}
+    .requirements-copy h2{margin-bottom:14px;color:var(--violet-deep);font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.2}
+    .requirements-copy>p{margin-bottom:22px;color:var(--muted)}
+    .requirements-list{display:grid;gap:14px;list-style:none}
+    .requirements-list li{display:flex;align-items:flex-start;gap:12px;color:#50455F}
+    .list-check{display:grid;place-items:center;flex:0 0 26px;width:26px;height:26px;margin-top:2px;border-radius:50%;color:var(--green);background:#E2F6EB;font-size:.8rem;font-weight:900}
+    .support-card{padding:30px;border:1px solid #E7D6F2;border-radius:24px;background:radial-gradient(circle at 100% 0,rgba(139,0,255,.1),transparent 42%),#fff;box-shadow:var(--shadow)}
+    .support-card h3{margin-bottom:9px;color:var(--violet-deep);font-size:1.35rem}
+    .support-card p{margin-bottom:19px;color:var(--muted);font-size:.94rem}
+    .support-tip{margin-top:14px;padding:13px 15px;border-left:4px solid var(--gold-deep);border-radius:0 10px 10px 0;color:#5C4B19;background:var(--gold-pale);font-size:.84rem}
+    .final-cta{padding:72px 0;color:#fff;background:radial-gradient(ellipse at 85% 10%,rgba(139,0,255,.48),transparent 42%),linear-gradient(120deg,#321044,#5B168A 70%,#42105F)}
+    .cta-inner{display:flex;align-items:center;justify-content:space-between;gap:32px}
+    .cta-inner h2{margin-bottom:11px;font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.2;letter-spacing:-.035em}
+    .cta-inner p{max-width:650px;color:#E9DDF4}
+    .cta-inner .btn{flex-shrink:0}
+    .site-footer{padding:28px 0;background:#24102F;color:#E7DDED}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .footer-brand{color:#fff;font-weight:800}
+    .footer-copy{margin-top:4px;color:#BDAEC9;font-size:.82rem}
+    .footer-links{display:flex;flex-wrap:wrap;gap:18px;font-size:.85rem}
+    .footer-links a:hover{color:var(--gold)}
+    @media(max-width:900px){
+      .nav-links{gap:14px}
+      .hero-grid{grid-template-columns:1fr .9fr;gap:28px}
+      .learning-card{padding:24px}.moodle-intro{padding:31px}.moodle-options{padding:25px}
+    }
+    @media(max-width:760px){
+      .section{padding:60px 0}.nav{min-height:72px}
+      .brand{font-size:2.1rem}
+      .menu-toggle{display:grid;place-items:center;background:#4B176A;border-color:#744A8C;color:#fff}
+      .nav-links{position:absolute;top:100%;left:0;right:0;display:none;align-items:stretch;gap:0;padding:12px 4% 20px;border-bottom:1px solid var(--line);background:var(--pearl);box-shadow:0 15px 24px rgba(53,16,79,.08)}
+      .nav-links.open{display:flex;flex-direction:column;background:var(--violet-deep)}
+      .nav-links>a:not(.btn){padding:12px 4px;border-bottom:1px solid #F0E8F5}
+      .nav-links .btn{margin-top:12px}
+      .hero{padding:55px 0 62px}.hero-grid{grid-template-columns:1fr;gap:30px}
+      h1{font-size:clamp(2.45rem,10vw,3.6rem)}.hero-description{font-size:1rem}
+      .learning-card{max-width:540px}.benefits-grid{grid-template-columns:1fr;gap:16px}
+      .benefit{justify-content:flex-start}.moodle-panel{grid-template-columns:1fr}
+      .moodle-intro{padding:31px 25px}.moodle-options{padding:21px}
+      .steps-grid{grid-template-columns:1fr;gap:14px}.step-card{padding:23px}
+      .requirements-grid{grid-template-columns:1fr;gap:29px}
+      .cta-inner{align-items:flex-start;flex-direction:column}.footer-inner{align-items:flex-start;flex-direction:column}
+    }
+    @media(max-width:420px){
+      .container{width:91%}.brand{font-size:1.9rem}
+      .hero-actions{flex-direction:column}.hero-actions .btn{width:100%}
+      .learning-card{padding:21px}.moodle-options{padding:15px}
+      .access-option{gap:10px;padding:13px}.support-card{padding:23px}
+    }
+
+    /* Final polish: clearer focus, responsive navigation, and print-friendly output */
+    .menu-toggle[hidden]{display:none!important}
+    .access-option-content{flex:1;min-width:0}
+    .nav-links{z-index:1001}
+    .btn:focus-visible,.nav-links a:focus-visible,.menu-toggle:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+    .access-option p,.step-card p,.requirements-copy>p{line-height:1.75}
+    .hero-description{line-height:1.8}
+    ::selection{color:var(--violet-deep);background:#FFE875}
+    @media(min-width:761px){.nav-links{display:flex!important}}
+    @media(max-width:760px){.nav-links{display:none}.nav-links.open{display:flex}.nav-links>a:not(.btn){min-height:44px;display:flex;align-items:center}.menu-toggle{min-width:46px;min-height:46px}}
+    @media print{.site-header{position:static}.menu-toggle,.hero-actions,.btn,.final-cta{display:none!important}body{background:#fff;color:#111}.hero,.moodle-intro,.site-footer{background:#fff!important;color:#111!important}.hero-description,.moodle-intro p,.moodle-url,.footer-copy{color:#333!important}.section,.hero{padding:24px 0}.learning-card,.moodle-panel,.support-card,.step-card{box-shadow:none}}
+
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}*,*:before,*:after{transition-duration:.01ms!important}
     }
   </style>
 </head>
-
 <body>
-
-  <!-- =====================================
-       HEADER AND NAVIGATION
-       ===================================== -->
-
   <header class="site-header">
-    <div class="container header-inner">
-
-      <a href="index.html" class="logo" aria-label="GTTI home">
-        <span class="logo-mark">G</span>
-        <span class="logo-copy">
-          <strong>GOLIDE TTI</strong>
-          <span>DIGITAL LEARNING</span>
-        </span>
-      </a>
-
-      <button
-        class="nav-toggle"
-        type="button"
-        aria-label="Open navigation menu"
-        aria-controls="main-nav"
-        aria-expanded="false">
-        ☰
-      </button>
-
-      <nav class="nav" id="main-nav" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="schools.html">Schools</a>
-        <a href="admissions.html">Admissions</a>
-        <a href="odel.html" class="active" aria-current="page">ODeL</a>
-        <a href="contact.html">Contact</a>
-
-        <a
-          href="https://YOUR-MOODLE-DOMAIN-HERE/login/index.php"
-          class="btn btn-plum"
-          target="_blank"
-          rel="noopener noreferrer">
-          Student Login ↗
-        </a>
-
-        <a href="admissions.html" class="btn btn-gold">
-          Apply Now
-        </a>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Golide Technical Training Institute home">GTTI</a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false" hidden>☰</button>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#learning" aria-current="page">ODeL</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#support">Student Support</a>
+        <a class="btn btn-gold" href="https://gtti.moodiy.school/login/index.php" target="_blank" rel="noopener noreferrer">Log In to Moodle ↗</a>
       </nav>
-
     </div>
   </header>
 
-
   <main>
-
-    <!-- =====================================
-         HERO SECTION
-         ===================================== -->
-
-    <section class="hero">
-      <div class="container hero-inner">
-
-        <div class="hero-copy">
-          <span class="eyebrow">Open, Distance & e-Learning</span>
-
-          <h1>
-            Your Future.<br>
-            Your Pace.<br>
-            <span class="gold-text">Your Potential.</span>
-          </h1>
-
-          <p class="hero-description">
-            Welcome to GTTI's digital learning experience.
-            Access course materials, engage with your studies,
-            complete assessments and build practical skills
-            wherever your learning journey takes you.
-          </p>
-
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-badge"><span class="status-dot" aria-hidden="true"></span> YOUR DIGITAL CAMPUS</div>
+          <h1>Learn without <span>limits.</span> Grow with purpose.</h1>
+          <p class="hero-description">Welcome to the Online and Distance e-Learning platform of Golide Technical Training Institute. Find your course materials, follow learning activities, submit assignments and stay connected with your studies—using a phone, tablet or computer.</p>
           <div class="hero-actions">
-            <a
-              href="https://YOUR-MOODLE-DOMAIN-HERE/login/index.php"
-              class="btn btn-plum"
-              target="_blank"
-              rel="noopener noreferrer">
-              Access Moodle <span aria-hidden="true">↗</span>
-            </a>
-
-            <a href="#how-it-works" class="btn btn-white">
-              Discover How It Works ↓
-            </a>
+            <a class="btn btn-gold" href="https://gtti.moodiy.school/login/index.php" target="_blank" rel="noopener noreferrer">Access My Learning →</a>
+            <a class="btn btn-outline" href="#how-it-works">How to Get Started</a>
           </div>
-
-          <div class="hero-caption">
-            <span class="caption-mark" aria-hidden="true">✓</span>
-            <span>Structured learning. Practical skills. Real progress.</span>
-          </div>
+          <p class="hero-note"><span aria-hidden="true">✦</span><span><strong>Flexible learning.</strong> Use your phone, tablet or computer to study online.</span></p>
         </div>
 
-        <div class="hero-art" aria-hidden="true">
-          <div class="art-orbit"></div>
-
-          <div class="floating-tag floating-one">
-            <span>✦</span> Learn from anywhere
+        <aside class="learning-card" aria-label="Online learning features">
+          <div class="card-icon" aria-hidden="true">✧</div>
+          <h2>Your classroom, wherever you are.</h2>
+          <p>Your central place for course notes, activities, assignments and learning updates.</p>
+          <div class="platform-list">
+            <div class="platform-item"><span class="platform-check" aria-hidden="true">✓</span><div><strong>Course Materials</strong><small>Find notes and learning resources</small></div></div>
+            <div class="platform-item"><span class="platform-check" aria-hidden="true">✓</span><div><strong>Assignments & Activities</strong><small>Complete and submit coursework online</small></div></div>
+            <div class="platform-item"><span class="platform-check" aria-hidden="true">✓</span><div><strong>Learning Progress</strong><small>Keep track of course activities</small></div></div>
           </div>
-
-          <div class="art-card">
-            <div class="art-card-top">
-              <span class="art-logo">G</span>
-              <span>
-                <strong>GTTI Digital Campus</strong>
-                <small>YOUR LEARNING SPACE</small>
-              </span>
-            </div>
-
-            <h3>Learn. Practise. Progress.</h3>
-
-            <div class="art-feature">
-              <span class="art-check">✓</span>
-              Course materials and notes
-            </div>
-
-            <div class="art-feature">
-              <span class="art-check">✓</span>
-              Online assignments and CATs
-            </div>
-
-            <div class="art-feature">
-              <span class="art-check">✓</span>
-              Learning resources and feedback
-            </div>
-          </div>
-
-          <div class="floating-tag floating-two">
-            <span>◆</span> Skills for your future
-          </div>
-        </div>
-
+          <a class="btn btn-violet btn-block" href="https://gtti.moodiy.school/login/index.php" target="_blank" rel="noopener noreferrer">Enter the Learning Portal ↗</a>
+          <p class="secure-note">Your Moodle account is required to access enrolled courses.</p>
+        </aside>
       </div>
     </section>
 
+    <section class="benefits-strip" aria-label="Learning benefits">
+      <div class="container benefits-grid">
+        <div class="benefit"><span class="benefit-icon" aria-hidden="true">▣</span><div><strong>Mobile-Friendly Learning</strong><span>Study from your phone or computer</span></div></div>
+        <div class="benefit"><span class="benefit-icon" aria-hidden="true">◷</span><div><strong>Learn at Your Pace</strong><span>Access available course resources online</span></div></div>
+        <div class="benefit"><span class="benefit-icon" aria-hidden="true">✦</span><div><strong>One Learning Portal</strong><span>Access your Moodle courses in one place</span></div></div>
+      </div>
+    </section>
 
-    <!-- =====================================
-         DEDICATED MOODLE ACCESS
-         ===================================== -->
-
-    <section class="moodle-section" aria-labelledby="moodle-title">
+    <section class="section moodle-section" id="learning">
       <div class="container">
-
+        <div class="section-heading">
+          <span class="eyebrow">Your Learning Starts Here</span>
+          <h2>Welcome to your digital classroom</h2>
+          <p>Choose the access option that suits you. Use your registered Moodle account to enter your learning space.</p>
+        </div>
         <div class="moodle-panel">
-          <div>
-            <span class="moodle-kicker">YOUR DIGITAL CAMPUS AWAITS</span>
-
-            <h2 id="moodle-title">
-              Everything you need to keep learning.
-            </h2>
-
-            <p>
-              Already registered? Enter your GTTI Moodle
-              learning environment to access your courses,
-              download notes, submit assignments and check
-              your learning activities.
-            </p>
+          <div class="moodle-intro">
+            <span class="eyebrow">GTTI Moodle Portal</span>
+            <h2>Your courses are just one click away.</h2>
+            <p>Sign in to view your enrolled courses, learning materials, activities and assignment instructions.</p>
+            <a class="btn btn-gold" href="https://gtti.moodiy.school/login/index.php" target="_blank" rel="noopener noreferrer">Log In to Moodle ↗</a>
+            <div class="moodle-url">Official learning platform<strong>gtti.moodiy.school</strong></div>
           </div>
-
-          <a
-            href="https://YOUR-MOODLE-DOMAIN-HERE/login/index.php"
-            class="btn btn-gold"
-            target="_blank"
-            rel="noopener noreferrer">
-            Enter Moodle <span aria-hidden="true">↗</span>
-          </a>
+          <div class="moodle-options">
+            <article class="access-option">
+              <span class="access-icon" aria-hidden="true">➜</span>
+              <div class="access-option-content">
+                <h3>Already have an account?</h3>
+                <p>Sign in using your Moodle username and password to continue with your courses.</p>
+                <a class="btn btn-gold" href="https://gtti.moodiy.school/login/index.php" target="_blank" rel="noopener noreferrer">Sign In to Your Account</a>
+              </div>
+            </article>
+            <article class="access-option">
+              <span class="access-icon" aria-hidden="true">▤</span>
+              <div class="access-option-content">
+                <h3>Looking for your courses?</h3>
+                <p>Open Moodle and check your dashboard for courses assigned to your account.</p>
+                <a class="btn btn-outline" href="https://gtti.moodiy.school/" target="_blank" rel="noopener noreferrer">Open Moodle Homepage</a>
+              </div>
+            </article>
+          </div>
         </div>
-
       </div>
     </section>
 
-
-    <!-- =====================================
-         HOW LEARNING WORKS
-         ===================================== -->
-
-    <section class="section" id="how-it-works">
+    <section class="section steps-section" id="how-it-works">
       <div class="container">
-
         <div class="section-heading">
-          <span class="eyebrow">Your learning journey</span>
-          <h2>How Your Learning Works</h2>
-          <p>
-            Six connected stages designed to help you study
-            consistently, develop practical skills and progress
-            towards your academic goals.
-          </p>
+          <span class="eyebrow">Simple Steps</span>
+          <h2>How to start learning online</h2>
+          <p>Follow these three steps to access your learning materials and begin using GTTI Moodle.</p>
         </div>
-
-        <div class="grid-3">
-
-          <article class="info-card">
-            <span class="card-number">01</span>
-            <h3>Learn</h3>
-            <p>
-              Explore course modules, digital notes, reading
-              materials and learning resources at your own pace,
-              according to your course schedule.
-            </p>
-          </article>
-
-          <article class="info-card">
-            <span class="card-number">02</span>
-            <h3>Engage</h3>
-            <p>
-              Participate in scheduled online classes, discussions
-              and academic activities that help you connect
-              theory with practical experience.
-            </p>
-          </article>
-
-          <article class="info-card">
-            <span class="card-number">03</span>
-            <h3>Watch</h3>
-            <p>
-              Revisit available recorded lessons, demonstrations
-              and other multimedia resources to strengthen your
-              understanding of difficult topics.
-            </p>
-          </article>
-
-          <article class="info-card">
-            <span class="card-number">04</span>
-            <h3>Practise</h3>
-            <p>
-              Apply what you learn through guided exercises,
-              practical tasks, projects and other course-related
-              learning activities.
-            </p>
-          </article>
-
-          <article class="info-card">
-            <span class="card-number">05</span>
-            <h3>Submit</h3>
-            <p>
-              Complete and submit assignments, continuous
-              assessment tests and other coursework through
-              the designated online activities.
-            </p>
-          </article>
-
-          <article class="info-card">
-            <span class="card-number">06</span>
-            <h3>Progress</h3>
-            <p>
-              Review lecturer feedback, monitor available grades
-              and follow assessment deadlines and academic
-              guidance throughout your course.
-            </p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- =====================================
-         DIGITAL CAMPUS SERVICES
-         ===================================== -->
-
-    <section class="section section-lavender" id="digital-campus">
-      <div class="container">
-
-        <div class="section-heading">
-          <span class="eyebrow">One connected experience</span>
-          <h2>Your Digital Campus</h2>
-          <p>
-            Find the learning services and academic resources
-            that support your studies at GTTI.
-          </p>
-        </div>
-
-        <div class="grid-3">
-
-          <article class="value-card">
-            <span class="card-icon" aria-hidden="true">↗</span>
-            <h3>Moodle LMS</h3>
-            <p>
-              Access your enrolled courses, lessons, learning
-              activities, assignments, feedback and assessments.
-            </p>
-            <a
-              href="https://YOUR-MOODLE-DOMAIN-HERE/login/index.php"
-              target="_blank"
-              rel="noopener noreferrer">
-              Open Moodle →
-            </a>
-          </article>
-
-          <article class="value-card">
-            <span class="card-icon" aria-hidden="true">▤</span>
-            <h3>Student Portal</h3>
-            <p>
-              Find official student registration and academic
-              records services through the relevant institutional
-              portal, where available.
-            </p>
-            <a href="contact.html">Ask about student services →</a>
-          </article>
-
-          <article class="value-card">
-            <span class="card-icon" aria-hidden="true">▧</span>
-            <h3>E-Library</h3>
-            <p>
-              Discover recommended reading, digital reference
-              materials and research resources made available
-              for your programme.
-            </p>
-            <a href="contact.html">Ask about library access →</a>
-          </article>
-
-          <article class="value-card">
-            <span class="card-icon" aria-hidden="true">✓</span>
-            <h3>Online CATs</h3>
-            <p>
-              Access continuous assessment tests and other
-              online quizzes when your lecturer makes them
-              available.
-            </p>
-            <a
-              href="https://YOUR-MOODLE-DOMAIN-HERE/login/index.php"
-              target="_blank"
-              rel="noopener noreferrer">
-              Go to Moodle →
-            </a>
-          </article>
-
-          <article class="value-card">
-            <span class="card-icon" aria-hidden="true">↥</span>
-            <h3>Assignments</h3>
-            <p>
-              View assignment instructions, check due dates
-              and submit coursework through the appropriate
-              Moodle activity.
-            </p>
-            <a
-              href="https://YOUR-MOODLE-DOMAIN-HERE/login/index.php"
-              target="_blank"
-              rel="noopener noreferrer">
-              Access coursework →
-            </a>
-          </article>
-
-          <article class="value-card">
-            <span class="card-icon" aria-hidden="true">?</span>
-            <h3>Student Support</h3>
-            <p>
-              Get guidance on accessing your account,
-              navigating digital learning and contacting
-              the appropriate academic or ICT team.
-            </p>
-            <a href="contact.html">Get support →</a>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- =====================================
-         STUDENT REQUIREMENTS
-         ===================================== -->
-
-    <section class="section" id="requirements">
-      <div class="container">
-
-        <div class="section-heading">
-          <span class="eyebrow">Prepare for success</span>
-          <h2>What You Need to Learn</h2>
-          <p>
-            A few essentials can make your online learning
-            experience more convenient and productive.
-          </p>
-        </div>
-
-        <div class="grid-4">
-
-          <article class="route-card">
-            <span class="card-icon" aria-hidden="true">▣</span>
-            <h3>Smartphone or Computer</h3>
-            <p>
-              Use a smartphone, tablet or computer to access
-              course materials and participate in supported
-              learning activities.
-            </p>
-          </article>
-
-          <article class="route-card">
-            <span class="card-icon" aria-hidden="true">⌁</span>
-            <h3>Internet Connection</h3>
-            <p>
-              Connect to the internet to download resources,
-              communicate with lecturers and participate in
-              online activities.
-            </p>
-          </article>
-
-          <article class="route-card">
-            <span class="card-icon" aria-hidden="true">@</span>
-            <h3>Active Email Address</h3>
-            <p>
-              Maintain access to your registered email for
-              important academic communication and account
-              recovery, where configured.
-            </p>
-          </article>
-
-          <article class="route-card">
-            <span class="card-icon" aria-hidden="true">◷</span>
-            <h3>Time and Commitment</h3>
-            <p>
-              Plan study sessions, follow your timetable,
-              track deadlines and allow sufficient time
-              for coursework and assessments.
-            </p>
-          </article>
-
-        </div>
-
-        <div class="requirements-note">
-          <strong>Learning tip:</strong>
-          If you mainly use a smartphone, consider connecting
-          to Wi-Fi before downloading large documents or videos.
-          Always check assessment instructions for any specific
-          device or technical requirements.
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- =====================================
-         THE GTTI ODeL PROMISE
-         ===================================== -->
-
-    <section class="promise">
-      <div class="container">
-
-        <span class="eyebrow">The GTTI ODeL promise</span>
-
-        <h2>
-          Flexible Learning Does Not Mean
-          Learning Without Deadlines.
-        </h2>
-
-        <p>
-          Take ownership of your learning, participate actively,
-          practise consistently and respect the academic
-          schedules that keep your progress on track.
-        </p>
-
-      </div>
-    </section>
-
-
-    <!-- =====================================
-         HOW TO GET STARTED
-         ===================================== -->
-
-    <section class="section section-lavender" id="getting-started">
-      <div class="container">
-
-        <div class="section-heading">
-          <span class="eyebrow">Your next steps</span>
-          <h2>How to Get Started</h2>
-          <p>
-            Follow the institutional admission and onboarding
-            process to begin your digital learning journey.
-          </p>
-        </div>
-
         <div class="steps-grid">
-
-          <article class="step">
-            <span class="step-num">01</span>
-            <h3>Apply</h3>
-            <p>
-              Explore available programmes and follow the
-              official admission process.
-            </p>
-          </article>
-
-          <article class="step">
-            <span class="step-num">02</span>
-            <h3>Register</h3>
-            <p>
-              Complete the required registration and
-              enrolment procedures.
-            </p>
-          </article>
-
-          <article class="step">
-            <span class="step-num">03</span>
-            <h3>Get Access</h3>
-            <p>
-              Obtain your Moodle account details through
-              the authorised institutional process.
-            </p>
-          </article>
-
-          <article class="step">
-            <span class="step-num">04</span>
-            <h3>Get Oriented</h3>
-            <p>
-              Learn how to navigate your courses, activities,
-              deadlines and learning resources.
-            </p>
-          </article>
-
-          <article class="step">
-            <span class="step-num">05</span>
-            <h3>Start Learning</h3>
-            <p>
-              Log in, open your enrolled courses and follow
-              the instructions provided by your lecturers.
-            </p>
-          </article>
-
+          <article class="step-card"><div class="step-number">01</div><h3>Sign In</h3><p>Click a Moodle access button and enter the username and password associated with your account.</p></article>
+          <article class="step-card"><div class="step-number">02</div><h3>Open Your Course</h3><p>Once logged in, visit your dashboard and select a course in which you are enrolled.</p></article>
+          <article class="step-card"><div class="step-number">03</div><h3>Study & Participate</h3><p>Read the materials, follow course instructions, participate in activities and submit assignments as directed.</p></article>
         </div>
-
-        <div class="support-box">
-          <div>
-            <h3>Having trouble accessing Moodle?</h3>
-            <p>
-              Contact GTTI for assistance with account access,
-              registration or digital learning support.
-            </p>
-          </div>
-
-          <a href="contact.html" class="btn btn-plum">
-            Contact Student Support →
-          </a>
-        </div>
-
       </div>
     </section>
 
-
-    <!-- =====================================
-         FINAL CALL TO ACTION
-         ===================================== -->
+    <section class="section" id="support">
+      <div class="container requirements-grid">
+        <div class="requirements-copy">
+          <span class="eyebrow">Be Ready to Learn</span>
+          <h2>Everything you need to get started</h2>
+          <p>You do not need an expensive computer to begin. A suitable smartphone and internet connection can help you access many Moodle learning activities.</p>
+          <ul class="requirements-list">
+            <li><span class="list-check" aria-hidden="true">✓</span><span><strong>A device:</strong> a smartphone, tablet or computer.</span></li>
+            <li><span class="list-check" aria-hidden="true">✓</span><span><strong>Internet access:</strong> a connection to open course materials and activities.</span></li>
+            <li><span class="list-check" aria-hidden="true">✓</span><span><strong>Your login details:</strong> the username and password for your Moodle account.</span></li>
+            <li><span class="list-check" aria-hidden="true">✓</span><span><strong>Commitment:</strong> check course announcements and assignment deadlines regularly.</span></li>
+          </ul>
+        </div>
+        <aside class="support-card">
+          <div class="card-icon" aria-hidden="true">?</div>
+          <h3>Having trouble logging in?</h3>
+          <p>If your login details do not work, use the password-reset option on Moodle if available. If you can sign in but cannot see your course, contact your institute’s designated Moodle administrator or student support team.</p>
+          <a class="btn btn-violet btn-block" href="https://gtti.moodiy.school/login/index.php" target="_blank" rel="noopener noreferrer">Try Logging In Again ↗</a>
+          <div class="support-tip"><strong>Helpful tip:</strong> Double-check your username and password. If you have forgotten your password, use the password-reset option on the Moodle login page if available.</div>
+        </aside>
+      </div>
+    </section>
 
     <section class="final-cta">
-      <div class="container">
-
-        <span class="eyebrow">Your future starts with a step</span>
-
-        <h2>Ready to Learn, Grow and Progress?</h2>
-
-        <p>
-          Whether you are exploring a programme or continuing
-          your studies, GTTI's digital learning environment
-          is here to support your educational journey.
-        </p>
-
-        <div class="hero-actions">
-          <a href="schools.html" class="btn btn-gold">
-            Explore Programmes →
-          </a>
-
-          <a
-            href="https://YOUR-MOODLE-DOMAIN-HERE/login/index.php"
-            class="btn btn-outline"
-            target="_blank"
-            rel="noopener noreferrer">
-            Already Registered? Log In ↗
-          </a>
-
-          <a href="contact.html" class="btn btn-outline">
-            Contact GTTI
-          </a>
-        </div>
-
+      <div class="container cta-inner">
+        <div><h2>Your next learning milestone starts today.</h2><p>Log in to your GTTI Moodle account and take the next step towards your educational and professional goals.</p></div>
+        <a class="btn btn-gold" href="https://gtti.moodiy.school/login/index.php" target="_blank" rel="noopener noreferrer">Go to Moodle Now ↗</a>
       </div>
     </section>
-
   </main>
 
-
-  <!-- =====================================
-       FOOTER
-       ===================================== -->
-
   <footer class="site-footer">
-    <div class="container">
-
-      <div class="footer-grid">
-
-        <div class="footer-brand-column">
-          <div class="footer-brand">
-            <span class="logo-mark">G</span>
-            <strong>Golide Technical Training Institute</strong>
-          </div>
-
-          <p class="footer-description">
-            Where Potential Becomes Practical Skill.
-            Empowering learners through technical education,
-            practical training and accessible digital learning.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="footer-heading">Explore GTTI</h3>
-
-          <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="schools.html">Schools & Programmes</a>
-            <a href="admissions.html">Admissions</a>
-            <a href="odel.html">Open, Distance & e-Learning</a>
-          </div>
-        </div>
-
-        <div>
-          <h3 class="footer-heading">Student Resources</h3>
-
-          <div class="footer-links">
-            <a
-              href="https://YOUR-MOODLE-DOMAIN-HERE/login/index.php"
-              target="_blank"
-              rel="noopener noreferrer">
-              Moodle Student Login ↗
-            </a>
-
-            <a href="contact.html">ICT & Academic Support</a>
-            <a href="contact.html">Contact the Institute</a>
-            <span>Nairobi, Kenya</span>
-            <a href="mailto:golidetti@gmail.com">
-              golidetti@gmail.com
-            </a>
-          </div>
-        </div>
-
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">Golide Technical Training Institute</div>
+        <p class="footer-copy">Online and Distance e-Learning (ODeL)</p>
+        <p class="footer-copy">© <span id="currentYear"></span> GTTI. All rights reserved.</p>
       </div>
-
-      <div class="footer-bottom">
-        <span>
-          © <span id="current-year">2026</span>
-          Golide Technical Training Institute. All rights reserved.
-        </span>
-
-        <a href="#top" id="back-to-top">Back to top ↑</a>
-      </div>
-
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="#home">Back to Top ↑</a>
+        <a href="#learning">Online Learning</a>
+        <a href="#support">Student Support</a>
+        <a href="https://gtti.moodiy.school/login/index.php" target="_blank" rel="noopener noreferrer">Moodle Login ↗</a>
+      </nav>
     </div>
   </footer>
 
-
-  <!-- =====================================
-       SMALL ACCESSIBLE NAVIGATION SCRIPT
-       ===================================== -->
-
   <script>
-    (function () {
-      const toggle = document.querySelector(".nav-toggle");
-      const nav = document.querySelector("#main-nav");
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    menuToggle.hidden = false;
 
-      if (!toggle || !nav) return;
+    menuToggle.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
 
-      function closeMenu() {
-        nav.classList.remove("is-open");
-        toggle.setAttribute("aria-expanded", "false");
-        toggle.setAttribute("aria-label", "Open navigation menu");
-        toggle.textContent = "☰";
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && navLinks.classList.contains("open")) {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+        menuToggle.textContent = "☰";
+        menuToggle.focus();
       }
-
-      toggle.addEventListener("click", function () {
-        const isOpen = nav.classList.toggle("is-open");
-
-        toggle.setAttribute("aria-expanded", String(isOpen));
-        toggle.setAttribute(
-          "aria-label",
-          isOpen ? "Close navigation menu" : "Open navigation menu"
-        );
-        toggle.textContent = isOpen ? "×" : "☰";
-      });
-
-      nav.querySelectorAll("a").forEach(function (link) {
-        link.addEventListener("click", closeMenu);
-      });
-
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
-          closeMenu();
-          toggle.focus();
-        }
-      });
-
-      window.addEventListener("resize", function () {
-        if (window.innerWidth > 800) {
-          closeMenu();
-        }
-      });
-
-      const year = document.querySelector("#current-year");
-
-      if (year) {
-        year.textContent = new Date().getFullYear();
-      }
-    })();
+    });
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
