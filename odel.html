@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#35104F">
   <meta name="description" content="Access online learning, course materials, assignments and learning resources at Golide Technical Training Institute.">
   <title>Online Learning | Golide Technical Training Institute</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <style>
     :root {
       --pearl:#FDFBFF; --pearl-2:#F4EFF8; --white:#FFFFFF;
@@ -329,37 +330,6 @@
     </div>
   </footer>
 
-  <script>
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
-    menuToggle.hidden = false;
-
-    menuToggle.addEventListener("click", function () {
-      const isOpen = navLinks.classList.toggle("open");
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
-      menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
-      menuToggle.textContent = isOpen ? "×" : "☰";
-    });
-
-    navLinks.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        navLinks.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute("aria-label", "Open navigation menu");
-        menuToggle.textContent = "☰";
-      });
-    });
-
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape" && navLinks.classList.contains("open")) {
-        navLinks.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute("aria-label", "Open navigation menu");
-        menuToggle.textContent = "☰";
-        menuToggle.focus();
-      }
-    });
-    document.getElementById("currentYear").textContent = new Date().getFullYear();
-  </script>
+  <script src="./assets/js/site.js?v=3"></script>
 </body>
 </html>

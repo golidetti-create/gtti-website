@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#3B0A68">
   <title>Admissions | GTTI</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <meta name="description" content="Find GTTI programme requirements, application steps, registration guidance and admissions support.">
-  <link rel="stylesheet" href="./gtti.css?v=4">
+  <link rel="stylesheet" href="./gtti.css?v=7">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -83,14 +84,24 @@
     </div>
   </section>
 
-  <section class="section section-lavender">
+  <section class="section section-lavender" id="application-enquiry">
     <div class="container">
-      <h2>Ready to Apply?</h2>
-      <p class="section-intro">Start with the enquiry form. The GTTI admissions team will guide you through the rest.</p>
-      <div class="hero-buttons" style="display:flex;gap:16px;flex-wrap:wrap;">
-        <a href="contact.html" class="btn btn-primary">START APPLICATION</a>
-        <a href="find-route.html" class="btn btn-secondary-dark">FIND MY ROUTE</a>
-      </div>
+      <h2>Start Your Application Enquiry</h2>
+      <p class="section-intro">Share a few details and continue to WhatsApp with a prepared message for the GTTI admissions team. This is an enquiry, not a confirmed admission or a secure document-upload form.</p>
+      <form class="application-enquiry" id="gtti-application-enquiry">
+        <div class="application-grid">
+          <div class="application-field"><label for="app-full-name">Full name *</label><input id="app-full-name" name="fullName" autocomplete="name" required maxlength="120" placeholder="Your full name"></div>
+          <div class="application-field"><label for="app-phone">Phone number *</label><input id="app-phone" name="phone" type="tel" autocomplete="tel" required maxlength="30" placeholder="e.g. 07xx xxx xxx"></div>
+          <div class="application-field"><label for="app-email">Email address</label><input id="app-email" name="email" type="email" autocomplete="email" maxlength="160" placeholder="you@example.com"></div>
+          <div class="application-field"><label for="app-programme">Programme of interest *</label><select id="app-programme" name="programme" required><option value="">Choose a programme area</option><option>Social Work & Community Development</option><option>ICT & Digital Technology</option><option>Business & Management</option><option>Accounting, Finance & CPA</option><option>Criminology, Security & Justice</option><option>Beauty & Cosmetology</option><option>Counselling & Psychosocial Support</option><option>Short Courses</option><option>Not sure — please advise me</option></select></div>
+          <div class="application-field"><label for="app-qualification">Highest qualification</label><select id="app-qualification" name="qualification"><option value="Not specified">Select if applicable</option><option>KCPE</option><option>KCSE</option><option>Certificate</option><option>Diploma</option><option>Degree</option><option>Other qualification</option></select></div>
+          <div class="application-field"><label for="app-study-mode">Preferred study mode</label><select id="app-study-mode" name="studyMode"><option>Online / ODeL</option><option>Need guidance</option><option>Other / to be confirmed</option></select></div>
+          <div class="application-field application-field-wide"><label for="app-message">Question or additional information</label><textarea id="app-message" name="message" rows="3" maxlength="700" placeholder="Tell us about your goals or ask a question (optional)"></textarea></div>
+        </div>
+        <div class="application-actions"><button class="btn btn-primary" type="submit">CONTINUE TO WHATSAPP ↗</button><a href="find-route.html" class="btn btn-secondary-dark">FIND MY ENTRY ROUTE</a></div>
+        <p class="application-privacy">Privacy note: submitting opens WhatsApp with the details you entered. Nothing is saved by this website. Do not include passwords, ID numbers or sensitive documents in this enquiry.</p>
+        <p class="application-status" id="application-enquiry-status" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 
@@ -121,42 +132,9 @@
         <a href="contact.html">Contact</a>
       </div>
     </div>
-    <p class="footer-bottom">© 2026 Golide Technical Training Institute</p>
+    <p class="footer-bottom">© <span id="currentYear">2026</span> Golide Technical Training Institute</p>
   </footer>
 
-
-  <script>
-    // Accessible, dependency-free mobile navigation shared by all standard pages.
-    (function () {
-      var toggle = document.querySelector('.menu-toggle');
-      var nav = document.getElementById('site-navigation');
-      if (!toggle || !nav) return;
-      function closeMenu() {
-        nav.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Open navigation menu');
-        toggle.innerHTML = '☰ <span>Menu</span>';
-      }
-      function openMenu() {
-        nav.classList.add('is-open');
-        toggle.setAttribute('aria-expanded', 'true');
-        toggle.setAttribute('aria-label', 'Close navigation menu');
-        toggle.innerHTML = '✕ <span>Close</span>';
-      }
-      toggle.addEventListener('click', function () {
-        nav.classList.contains('is-open') ? closeMenu() : openMenu();
-      });
-      nav.addEventListener('click', function (event) {
-        if (event.target.closest('a')) closeMenu();
-      });
-      document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape') { closeMenu(); toggle.focus(); }
-      });
-      window.addEventListener('resize', function () {
-        if (window.innerWidth > 1024) closeMenu();
-      });
-    }());
-  </script>
-
+  <script src="./assets/js/site.js?v=3"></script>
 </body>
 </html>

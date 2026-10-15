@@ -1,38 +1,45 @@
-GTTI WEBSITE — PHASE 1 MOBILE & VISUAL POLISH
-Golide Technical Training Institute
+# GTTI Website — Scholar Edition
 
-PROJECT
-Static HTML/CSS website. No build step or package installation is required.
+Golide Technical Training Institute (GTTI), Kenya
 
-KEY FILES
-- index.html: homepage
-- gtti.css: shared styles for standard pages
-- odel.html: ODeL page with its own responsive design system
-- remaining HTML files: programme, admissions and support pages
+## What is included
 
-PHASE 1 CHANGES
-- More consistent electric-violet and radiant-gold accents, retaining the deep-violet institutional base and text-only GTTI wordmark.
-- Responsive navigation collapses before standard-page links become crowded on small laptops/tablets.
-- ODeL navigation receives a matching tablet breakpoint while retaining its distinct layout.
-- Improved spacing, headings, cards, form controls, keyboard focus and reduced-motion handling.
-- More resilient grids and buttons for narrow viewports; two-column layouts on tablets and single-column layouts on phones.
-- Updated shared stylesheet cache version to gtti.css?v=4.
+- Responsive multi-page website for desktop, tablet and mobile.
+- Scholar-inspired visual refinement using GTTI's violet, gold, white and plum identity.
+- Accessible navigation with keyboard and mobile support.
+- **Golide Guide**, a lightweight site navigation assistant that helps visitors find programme, admissions, fees, ODeL/Moodle, qualification-route, FAQ and contact pages.
+- Existing contact enquiry form powered by Formspree (must be tested live).
+- Programme, fees, admissions, ODeL, contact and FAQ pages, plus branded 404 page.
 
-DEPLOYMENT TO EXISTING HOSTING
-1. Download and extract this ZIP on your computer.
-2. Back up the current live website files before replacing anything.
-3. Upload the contents of the gtti-website-main folder into the same public web directory as the existing site, preserving filenames and relative paths.
-4. Confirm that index.html is in the public web root and gtti.css sits beside it.
-5. Visit the site in a private/incognito browser window, then hard-refresh on desktop and phone to avoid cached CSS.
-6. Test menu opening/closing, every primary navigation link, all programme cards, Moodle login, and the contact form.
-7. Keep the previous version until the live checks pass.
+## Important: what “AI assistant” means in this edition
 
-MAINTENANCE NOTES
-- Update shared navigation consistently across pages.
-- Check phone/WhatsApp, email, fees and admissions information before publishing.
-- The contact form uses a Formspree endpoint in contact.html; submit a test enquiry to confirm live delivery.
-- Moodle login should continue to open https://gtti.moodiy.school/login/index.php directly; this site does not collect Moodle passwords.
-- ODeL has a separate navigation and inline stylesheet by design.
+Golide Guide is currently a browser-based, rule-driven navigation assistant. It does not send visitor messages to an AI provider, and it does not require API keys. It is intentionally transparent and privacy-friendly, but it is **not a generative AI model** and cannot reliably answer every open-ended question.
 
-VALIDATION LIMIT
-This package has been checked for local HTML links, expected navigation elements, stylesheet references and basic source structure. It has not been tested on your live hosting account or in a full browser/device lab. Test before replacing the live site.
+For a true AI assistant, connect a server-side endpoint to an approved model provider. Keep API keys on the server, add rate limiting and abuse protection, provide only approved GTTI information as grounding, and clearly label AI-generated answers. Do not put a private API key in `site.js` or any browser-delivered file.
+
+## Local test on Windows
+
+1. Extract this ZIP.
+2. Open PowerShell inside `gtti-website-main`.
+3. Run `python -m http.server 8000`.
+4. Visit `http://localhost:8000`.
+5. Test the assistant, every navigation item, contact links, and the Moodle link on desktop and mobile.
+
+## Before publishing
+
+1. Preserve your existing `.git`, `.github`, workflow files, `CNAME`, and domain configuration when copying this folder into an existing repository.
+2. Confirm that `https://gtti.moodiy.school/` is the current official student portal and test login with a valid account.
+3. Submit a real contact enquiry and verify that it arrives at the correct GTTI inbox. The form endpoint is external, so source inspection alone cannot confirm delivery.
+4. Confirm current programme availability, exact awarding bodies, entry requirements, intake dates, fee schedules, institutional approvals and physical address before publication. Avoid presenting indicative KCSE pathways as guaranteed admission decisions.
+5. Test accessibility, mobile layouts, page titles, broken links and 404 handling on the deployed site.
+
+## Suggested next phase for a truly functional digital campus
+
+- A secure application form with submission confirmation and application reference number.
+- A student dashboard integrated with the actual LMS (Moodle), not a duplicate account system.
+- A verified programme catalogue with downloadable course outlines, entry requirements, duration and approved fees.
+- Automated enquiry acknowledgement and a clear human-support handoff.
+- Privacy notice, data-retention policy, consent wording and secure handling of applicant documents in line with applicable Kenyan data-protection requirements.
+- Analytics and search-console setup, with a consent-aware privacy approach.
+
+This package improves the front-end experience, but it does not create a backend database, process admissions decisions, take payments, or modify Moodle accounts. Those capabilities require properly configured external services or a backend.

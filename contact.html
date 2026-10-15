@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#35104F">
   <title>Contact GTTI | Golide Technical Training Institute</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <meta name="description" content="Contact Golide Technical Training Institute for programme, admissions, fees and online learning enquiries.">
-  <link rel="stylesheet" href="./gtti.css?v=4">
+  <link rel="stylesheet" href="./gtti.css?v=7">
   <style>
     /* Contact-page refinements: preserves the site's plum, violet, pearl and gold palette. */
     :root {
@@ -294,43 +295,7 @@
     <p class="footer-bottom">© <span id="currentYear">2026</span> Golide Technical Training Institute</p>
   </footer>
 
-  <script>
-    // Keeps the copyright year current without adding an external dependency.
-    document.getElementById("currentYear").textContent = new Date().getFullYear();
-  </script>
 
-  <script>
-    // Accessible, dependency-free mobile navigation shared by all standard pages.
-    (function () {
-      var toggle = document.querySelector('.menu-toggle');
-      var nav = document.getElementById('site-navigation');
-      if (!toggle || !nav) return;
-      function closeMenu() {
-        nav.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Open navigation menu');
-        toggle.innerHTML = '☰ <span>Menu</span>';
-      }
-      function openMenu() {
-        nav.classList.add('is-open');
-        toggle.setAttribute('aria-expanded', 'true');
-        toggle.setAttribute('aria-label', 'Close navigation menu');
-        toggle.innerHTML = '✕ <span>Close</span>';
-      }
-      toggle.addEventListener('click', function () {
-        nav.classList.contains('is-open') ? closeMenu() : openMenu();
-      });
-      nav.addEventListener('click', function (event) {
-        if (event.target.closest('a')) closeMenu();
-      });
-      document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape') { closeMenu(); toggle.focus(); }
-      });
-      window.addEventListener('resize', function () {
-        if (window.innerWidth > 1024) closeMenu();
-      });
-    }());
-  </script>
-
+  <script src="./assets/js/site.js?v=3"></script>
 </body>
 </html>
